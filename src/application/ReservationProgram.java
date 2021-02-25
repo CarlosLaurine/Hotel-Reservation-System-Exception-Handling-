@@ -10,12 +10,12 @@ import model.entities.Reservation;
 
 public class ReservationProgram {
 
-	public static void main(String[] args) throws ParseException{
+	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
-	
+		try {
 			System.out.print("Room number: ");
 			int number = sc.nextInt();
 			System.out.print("Check-in date (dd/MM/yyyy): ");
@@ -35,7 +35,13 @@ public class ReservationProgram {
 			
 			reservation.updatedDates(checkIn, checkOut);
 			System.out.println("Reservation: " + reservation);
-		
+		}
+		catch(ParseException e) {
+			System.out.println("Invalid Date Format");
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("An error followed up the Reservation: " + e.getMessage());
+		}
 
 		sc.close();
 	}
