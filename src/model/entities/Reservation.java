@@ -59,7 +59,7 @@ public class Reservation {
 			+ sdf1.format(checkout)
 			+ ", Duration: "
 			+ duration(checkin, checkout)
-			+ "Nights ";
+			+ " Nights";
 		
 	}
 	
